@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Spinner from '../../../components/UI/Spinner/Spinner'
 import classes from './ContactData.css'
@@ -103,8 +104,8 @@ class ContactData extends Component {
       formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value
     }
     const order = {
-      ingredients: this.props.ingredients,
-      price: this.props.totalPrice,
+      ingredients: this.props.ings,
+      price: this.props.price,
       orderData: formData
     }
     axios.post('/orders.json', order).then(
@@ -191,4 +192,11 @@ class ContactData extends Component {
   }
 }
 
-export default withRouter(ContactData)
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients,
+    price: state.totalPrice
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(ContactData))
