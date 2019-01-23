@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import Input from '../../components/UI/Input/Input'
 import Button from '../../components/UI/Button/Button'
 import Spinner from '../../components/UI/Spinner/Spinner'
-import classes from './Auth.css'
+import classes from './Auth.module.css'
 import * as actions from '../../store/actions/index'
 import { checkValidity, updateObject } from '../../shared/utility'
 
@@ -61,7 +61,7 @@ class Auth extends Component {
     this.setState({ controls: updatedControls })
   }
 
-  submitHandler = (event) => {
+  submitHandler = event => {
     event.preventDefault()
     this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup)
   }
@@ -89,7 +89,8 @@ class Auth extends Component {
         value={formElement.config.value}
         invalid={!formElement.config.valid}
         shouldValidate={formElement.config.validation}
-        changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+        changed={event => this.inputChangedHandler(event, formElement.id)}
+      />
     ))
 
     if (this.props.loading) {
@@ -98,10 +99,7 @@ class Auth extends Component {
 
     let errorMessage = null
 
-    if (this.props.error)
-      errorMessage = (
-        <p>{this.props.error.message}</p>
-      )
+    if (this.props.error) errorMessage = <p>{this.props.error.message}</p>
 
     let authRedirect = null
     if (this.props.isAuthenticated) {
@@ -112,13 +110,13 @@ class Auth extends Component {
       <div className={classes.Auth}>
         {authRedirect}
         {errorMessage}
-        <form onSubmit={this.submitHandler} >
+        <form onSubmit={this.submitHandler}>
           {form}
           <Button btnType="Success">SUBMIT</Button>
         </form>
-        <Button
-          clicked={this.switchAuthModeHandler}
-          btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button>
+        <Button clicked={this.switchAuthModeHandler} btnType="Danger">
+          SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}
+        </Button>
       </div>
     )
   }
@@ -141,4 +139,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Auth)
