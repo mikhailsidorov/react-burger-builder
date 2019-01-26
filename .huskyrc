@@ -1,9 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "*.{js, jsx}": [
-      "node_modules/.bin/eslint --max-warnings=0",
-      "prettier --write",
-      "git add"
-    ]
+    "pre-commit": lint-staged
   }
 }

@@ -1,0 +1,13 @@
+{
+    "extends": ["react-app", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "quotes": [2, "single", "avoid-escape"],
+        "no-multiple-empty-lines": ["error", {
+            "max": 1,
+            "maxEOF": 1
+        }]
+
+    },
+    "plugins": ["prettier"]
+}
