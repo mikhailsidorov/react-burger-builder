@@ -21,6 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "node_modules/.bin/eslint src/"
   },
+  "heroku-run-build-script": true,
   "eslintConfig": {
     "extends": "react-app"
   },
