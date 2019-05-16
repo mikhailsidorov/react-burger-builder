@@ -33,7 +33,7 @@
   ],
   "devDependencies": {
     "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.12.1",
+    "enzyme-adapter-react-16": "1.13.0",
     "eslint-config-prettier": "4.3.0",
     "eslint-config-react-app": "3.0.8",
     "eslint-plugin-flowtype": "3.8.1",
