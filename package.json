@@ -32,7 +32,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "enzyme": "3.9.0",
+    "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.13.2",
     "eslint-config-prettier": "4.3.0",
     "eslint-config-react-app": "4.0.1",
